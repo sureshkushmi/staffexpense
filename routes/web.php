@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\FormController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,3 +30,11 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+Route::post('/submit-form',[FormController::class,'store'])->name('submit.form');
+Route::get('/staff', [FormController::class, 'index'])->name('staff.index');
+Route::get('/export-to-word', [FormController::class, 'exportToWord'])->name('export.to.word');
+Route::get('/staff/search', [FormController::class, 'search'])->name('staff.search');
+
+
+
